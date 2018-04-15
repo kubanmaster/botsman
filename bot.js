@@ -51,3 +51,9 @@ robot.on('message', (message) => {
     message.reply("Привет, заходи в голосовой канал ПАЛУБА");  
   }
 });
+
+robot.on('guildMemberAdd', member => {
+  const channel = member.guild.channels.find('авторизация', 'member-log');
+  if (!channel) return;
+  channel.send(`Добро пожаловать в Казачий флот, ${member}`);
+});
